@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '23.0.2'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "fi.vtt.nubotest"
@@ -25,9 +25,17 @@ android {
 dependencies {
     //compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'fi.vtt.nubomedia:webrtcpeer-android:1.1.0'
-    compile 'fi.vtt.nubomedia:kurento-room-client-android:1.1.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+
+//    compile 'fi.vtt.nubomedia:webrtcpeer-android:1.1.0'
+//    compile('fi.vtt.nubomedia:utilities-android:1.0.2@aar') { transitive=true }//dependencies by webrtcpeer
+    compile('io.pristine:libjingle:11139@aar') { transitive=true }
+
+//    compile 'fi.vtt.nubomedia:kurento-room-client-android:1.1.1'
+//    compile('fi.vtt.nubomedia:jsonrpc-ws-android:1.0.6@aar') { transitive=true }//dependencies by room-client
+    compile('com.thetransactioncompany:jsonrpc2-base:1.38')//dependencies by jsonrpc-ws
+    compile('org.java-websocket:Java-WebSocket:1.3.0')//dependencies by jsonrpt-ws
+
     //compile 'io.pristine:libjingle:11139@aar'
     //compile 'fi.vtt.nubomedia:utilities-android:1.0.1'
     //compile('fi.vtt.nubomedia:jsonrpc-ws-android:1.0.6@aar') { transitive=true }
